@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import axios from "axios";
+import { device } from "../../styles/utility/media-breakpoints.mjs";
 
 import Loader from "../../helpers/loader/Loader";
 
@@ -233,13 +234,22 @@ const CellValue = styled.p`
 `;
 
 const ImagesGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: center;
 `;
 
 const GridImage = styled.img`
-  width: 100%;
+  flex: 1;
+  max-width: 30%;
+  margin: 10px;
+  @media ${device.tablet} {
+    max-width: 45%;
+  }
+  @media ${device.mobileL} {
+    max-width: 100%;
+  }
 `;
 
 const BottomDetails = styled.div`
@@ -249,6 +259,8 @@ const BottomDetails = styled.div`
 const DetailWrap = styled.div`
   padding: 1.5rem;
   width: 50%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const DetailTitle = styled.span`
@@ -262,17 +274,20 @@ const DescriptionContent = styled.span`
   font-size: 1.5rem;
   font-weight: ${(props) => props.theme.weightLight};
   line-height: 140%;
+  word-wrap: break-word;
 `;
 
 const AgentWrap = styled.div`
   height: 90%;
   display: flex;
   align-items: end;
+  flex-wrap: wrap;
 `;
 
 const AgentPhoto = styled.img`
   height: 100%;
   margin-right: 1rem;
+  object-fit: cover;
 `;
 
 const AgentDetails = styled.div``;

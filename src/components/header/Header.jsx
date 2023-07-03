@@ -47,7 +47,7 @@ export default function Header() {
         navOpen={navOpen}
       >
         {locale.toUpperCase()}
-        <LocaleIcon src={localeIcon} alt="" />
+        <LocaleIcon src={localeIcon} alt="" /> 
         <LocaleSelect selectOpen={selectOpen}>
           {localeList &&
             localeList.map((elem, idx) => {
